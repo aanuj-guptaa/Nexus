@@ -5,7 +5,7 @@ import type { SheetStatus } from '../../../types/portal'
 
 const STATUS_STYLE: Record<SheetStatus, string> = {
   draft: 'border-gray-300 dark:border-white/15 text-gray-500 dark:text-text-muted bg-gray-50 dark:bg-bg-elevated',
-  submitted: 'border-blue-400 dark:border-blue-500/40 text-blue-700 dark:text-blue-400 bg-blue-600 dark:bg-blue-50 dark:bg-blue-600 dark:bg-blue-500/10',
+  submitted: 'border-blue-600 dark:border-blue-500/30 text-white dark:text-blue-400 bg-blue-600 dark:bg-blue-500/10',
   approved: 'border-green-400 dark:border-green-500/30 text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-500/10',
   rework: 'border-red-400 dark:border-red-500/40 text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10',
 }
