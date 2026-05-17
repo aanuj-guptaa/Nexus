@@ -11,5 +11,5 @@ export interface Employee { id: string; name: string; jobTitle: string; departme
 export interface ManagerUser { id: string; name: string; jobTitle: string; avatarUrl: string; directReportIds: string[] }
 export interface AdminUser { id: string; name: string; jobTitle: string; avatarUrl: string }
 export interface CycleWindow { id: string; label: string; openDate: string; closeDate: string; isOpen: boolean }
-export interface AuditEntry { id: string; timestamp: string; actorName: string; action: string; details: string; employeeName?: string; oldValue?: string; newValue?: string }
+export interface AuditEntry { id: string; timestamp: string; actorName: string; action: string; details: string; employeeName?: string; field?: string; oldValue?: string; newValue?: string }
 export interface SharedGoalTemplate { id: string; managerId: string; title: string; description: string; thrustArea: string; measurement: MeasurementType; target: number; assignedToIds: string[] }

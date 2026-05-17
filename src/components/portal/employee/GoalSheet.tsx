@@ -21,8 +21,8 @@ const STATUS_LABELS: Record<string, string> = {
   not_started: 'NOT STARTED', on_track: 'ON TRACK', completed: 'COMPLETED', at_risk: 'AT RISK',
 }
 
-function GoalCard({ goal, sheetId, locked, onUpdate, onRemove }: {
-  goal: Goal; sheetId: string; locked: boolean
+function GoalCard({ goal, locked, onUpdate, onRemove }: {
+  goal: Goal; locked: boolean
   onUpdate: (id: string, u: Partial<Goal>) => void
   onRemove: (id: string) => void
 }) {
@@ -133,7 +133,7 @@ function GoalCard({ goal, sheetId, locked, onUpdate, onRemove }: {
 }
 
 export function GoalSheet() {
-  const { goalSheets, employees, activeUserId, updateGoalInSheet, addGoalToSheet, removeGoalFromSheet, submitSheet } = usePortalStore()
+  const { goalSheets, activeUserId, updateGoalInSheet, addGoalToSheet, removeGoalFromSheet, submitSheet } = usePortalStore()
   const [showReworkNote, setShowReworkNote] = useState(true)
   const [submitting, setSubmitting] = useState(false)
 
@@ -237,7 +237,7 @@ export function GoalSheet() {
         {/* Goal cards */}
         <AnimatePresence mode="popLayout">
           {sheet.goals.map(g => (
-            <GoalCard key={g.id} goal={g} sheetId={sheet.id} locked={locked}
+            <GoalCard key={g.id} goal={g} locked={locked}
               onUpdate={(id, u) => updateGoalInSheet(sheet.id, id, u)}
               onRemove={id => removeGoalFromSheet(sheet.id, id)} />
           ))}

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useInView } from '../../hooks/useInView'
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 interface FadeUpProps {
   children: ReactNode
@@ -15,7 +15,7 @@ export function FadeUp({ children, delay = 0, className }: FadeUpProps) {
       ref={ref}
       initial={{ opacity: 0, y: 28 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.65, delay }}
       className={className}
     >
       {children}
@@ -49,7 +49,7 @@ export function StaggerContainer({ children, className, staggerDelay = 0.08 }: S
 
 export const staggerItem = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } }
+  show: { opacity: 1, y: 0, transition: { duration: 0.55 } }
 }
 
 // Reusable section label (small blue eyebrow)

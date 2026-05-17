@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { usePortalStore, computeScore } from '../../../store/portalStore'
-import type { Goal } from '../../../types/portal'
+// import type { Goal } from '../../../types/portal'
 
 export function ReviewSheets({ focusEmployeeId }: { focusEmployeeId?: string }) {
   const { employees, goalSheets, manager, approveSheet, sendForRework, updateGoalInSheet } = usePortalStore()

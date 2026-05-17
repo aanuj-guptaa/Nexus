@@ -278,7 +278,7 @@ export const usePortalStore = create<PortalState>((set, get) => ({
           })
         }))
         
-        set(s => ({
+        set(() => ({
           // We override the dummy sheets for this user only, or just replace all for now
           // If we want manager view to work, we need to fetch team's sheets too. 
           // For now, let's just replace the entire array with the logged in user's sheets for safety.

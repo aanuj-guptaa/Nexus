@@ -120,9 +120,8 @@ export function Timeline() {
                   </motion.div>
 
                   <motion.div
-                    style={{ opacity: nodeOpacity }}
                     className="text-[9px] font-bold tracking-[0.15em] uppercase mb-1.5"
-                    style={{ color: p.color }}
+                    style={{ opacity: nodeOpacity, color: p.color }}
                   >
                     {p.period}
                   </motion.div>

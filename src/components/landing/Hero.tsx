@@ -8,7 +8,7 @@ const wordVariants = {
   show: (delay: number) => ({
     y: '0%',
     opacity: 1,
-    transition: { duration: 0.75, delay, ease: [0.22, 1, 0.36, 1] }
+    transition: { duration: 0.75, delay }
   })
 }
 
@@ -56,7 +56,6 @@ export function Hero() {
           {/* Heading */}
           <div className="mb-8">
             {lines.map((words, li) => {
-              const lineDelay = li * 0.18
               return (
                 <div key={li} className="flex items-baseline flex-wrap leading-none" style={{ marginBottom: li === 1 ? '0.05em' : '0' }}>
                   {words.map(({ text, cls }) => {

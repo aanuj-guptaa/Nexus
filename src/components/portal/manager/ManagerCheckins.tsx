@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { usePortalStore, computeScore } from '../../../store/portalStore'
-import type { Quarter, GoalStatus } from '../../../types/portal'
+import type { Quarter } from '../../../types/portal'
 
 const QUARTERS: { id: Quarter; label: string }[] = [
   { id: 'q1', label: 'Q1 · Apr' },
