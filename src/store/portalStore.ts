@@ -133,7 +133,7 @@ interface PortalState {
   markNotificationRead: (id: string) => Promise<void>
   isDark: boolean
   toggleDark: () => void
-  initializeSession: (userId: string) => Promise<void>
+  initializeSession: (userId: string, overrideRole?: Role) => Promise<void>
   switchJourneyDemo: (targetRole: Role) => Promise<void>
 }
 
@@ -157,24 +157,22 @@ export const usePortalStore = create<PortalState>((set, get) => ({
   toggleDark: () => set(s => ({ isDark: !s.isDark })),
 
   switchJourneyDemo: async (targetRole) => {
-    const { data: profiles } = await supabase.from('profiles').select('*').eq('role', targetRole).limit(1)
-    if (profiles && profiles.length > 0) {
-      await get().initializeSession(profiles[0].id)
-    } else {
-      // Fallback if no db profile exists yet for this role
-      set({ role: targetRole })
+    const { activeUserId } = get()
+    if (activeUserId) {
+      await get().initializeSession(activeUserId, targetRole)
     }
   },
 
-  initializeSession: async (userId: string) => {
+  initializeSession: async (userId: string, overrideRole?: Role) => {
     const { data: profile } = await supabase.from('profiles').select('*').eq('id', userId).single()
     
     if (profile) {
-      set({ role: profile.role, activeUserId: userId, currentUserProfile: profile })
+      const activeRole = overrideRole || profile.role
+      set({ role: activeRole, activeUserId: userId, currentUserProfile: { ...profile, role: activeRole } })
       
       let fetchIds = [userId]
       
-      if (profile.role === 'admin') {
+      if (activeRole === 'admin') {
         const { data: allProfiles } = await supabase.from('profiles').select('*')
         if (allProfiles) {
           fetchIds = allProfiles.map((p: any) => p.id)
@@ -184,7 +182,7 @@ export const usePortalStore = create<PortalState>((set, get) => ({
             }))
           })
         }
-      } else if (profile.role === 'manager') {
+      } else if (activeRole === 'manager') {
         const { data: team } = await supabase.from('profiles').select('*').eq('manager_id', userId)
         if (team && team.length > 0) {
           fetchIds = [userId, ...team.map((t: any) => t.id)]
@@ -193,7 +191,11 @@ export const usePortalStore = create<PortalState>((set, get) => ({
               id: t.id, name: t.name, jobTitle: t.job_title, department: t.department, avatarUrl: t.avatar_url, managerId: t.manager_id
             }))
           })
+        } else {
+          set({ employees: [] })
         }
+      } else {
+        set({ employees: [] })
       }
       
       // Fetch goal sheets for user AND their team
