@@ -107,13 +107,13 @@ export function ReviewSheets({ focusEmployeeId }: { focusEmployeeId?: string }) 
                             <label className="text-[8px] font-bold tracking-widest uppercase text-gray-400 dark:text-text-subtle block mb-1">Target</label>
                             <input type="number" disabled={!canAct} value={g.target}
                               onChange={e => updateGoalInSheet(sheet.id, g.id, { target: Number(e.target.value) })}
-                              className="w-full text-[12px] border border-gray-200 dark:border-white/10 rounded px-2 py-1.5 disabled:bg-gray-50 dark:bg-bg-elevated" />
+                              className="w-full text-[12px] text-gray-900 dark:text-text-primary bg-white dark:bg-bg-elevated border border-gray-200 dark:border-white/10 rounded px-2 py-1.5 disabled:bg-gray-50 dark:disabled:bg-bg-elevated/40 disabled:text-gray-400 dark:disabled:text-text-muted" />
                           </div>
                           <div>
                             <label className="text-[8px] font-bold tracking-widest uppercase text-gray-400 dark:text-text-subtle block mb-1">Weightage %</label>
                             <input type="number" disabled={!canAct} value={g.weightage}
                               onChange={e => updateGoalInSheet(sheet.id, g.id, { weightage: Number(e.target.value) })}
-                              className="w-full text-[12px] border border-gray-200 dark:border-white/10 rounded px-2 py-1.5 disabled:bg-gray-50 dark:bg-bg-elevated" />
+                              className="w-full text-[12px] text-gray-900 dark:text-text-primary bg-white dark:bg-bg-elevated border border-gray-200 dark:border-white/10 rounded px-2 py-1.5 disabled:bg-gray-50 dark:disabled:bg-bg-elevated/40 disabled:text-gray-400 dark:disabled:text-text-muted" />
                           </div>
                           <div>
                             <label className="text-[8px] font-bold tracking-widest uppercase text-gray-400 dark:text-text-subtle block mb-1">Thrust Area</label>

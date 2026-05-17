@@ -101,9 +101,9 @@ export function ManagerCheckins() {
                             <div className="text-[8px] font-bold tracking-widest uppercase text-gray-400 dark:text-text-subtle mb-1">Planned Target</div>
                             <div className="font-bold text-[14px] text-gray-900 dark:text-text-primary">{g.target.toLocaleString()}</div>
                           </div>
-                          <div className={`rounded-lg p-3 ${entry?.actual !== undefined ? 'bg-blue-600 dark:bg-blue-50 dark:bg-blue-600 dark:bg-blue-500/10' : 'bg-gray-50 dark:bg-bg-elevated'}`}>
+                          <div className={`rounded-lg p-3 ${entry?.actual !== undefined ? 'bg-blue-50 dark:bg-blue-500/10' : 'bg-gray-50 dark:bg-bg-elevated'}`}>
                             <div className="text-[8px] font-bold tracking-widest uppercase text-gray-400 dark:text-text-subtle mb-1">Actual</div>
-                            <div className="font-bold text-[14px] text-blue-700 dark:text-blue-400">{entry?.actual?.toLocaleString() ?? '—'}</div>
+                            <div className="font-bold text-[14px] text-blue-600 dark:text-blue-400">{entry?.actual?.toLocaleString() ?? '—'}</div>
                           </div>
                           <div className="bg-gray-50 dark:bg-bg-elevated rounded-lg p-3">
                             <div className="text-[8px] font-bold tracking-widest uppercase text-gray-400 dark:text-text-subtle mb-1">Employee Comment</div>
