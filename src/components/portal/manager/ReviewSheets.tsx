@@ -53,9 +53,9 @@ export function ReviewSheets({ focusEmployeeId }: { focusEmployeeId?: string }) 
                 <img src={e.avatarUrl} className="w-5 h-5 rounded-full" alt="" />
                 {e.name.split(' ')[0]}
                 <span className={`text-[8px] font-bold tracking-widest uppercase px-1.5 py-0.5 rounded ${
-                  sh?.status === 'submitted' ? 'bg-blue-600 dark:bg-blue-500/10 text-white dark:text-blue-400' :
-                  sh?.status === 'approved' ? 'bg-green-100 dark:bg-green-500/20 text-green-600 dark:text-green-400' :
-                  sh?.status === 'rework' ? 'bg-red-100 dark:bg-red-500/20 text-red-600 dark:text-red-400' : 'bg-gray-100 dark:bg-white/5 text-gray-500 dark:text-text-muted'
+                  sh?.status === 'submitted' ? 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400' :
+                  sh?.status === 'approved' ? 'bg-green-50 dark:bg-green-500/10 text-green-600 dark:text-green-400' :
+                  sh?.status === 'rework' ? 'bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400' : 'bg-gray-100 dark:bg-white/5 text-gray-500 dark:text-text-muted'
                 }`}>{sh?.status ?? 'draft'}</span>
               </motion.button>
             )
@@ -76,10 +76,10 @@ export function ReviewSheets({ focusEmployeeId }: { focusEmployeeId?: string }) 
                     <div className="text-[9px] font-bold tracking-widest uppercase text-gray-400 dark:text-text-subtle">{emp.jobTitle}</div>
                   </div>
                   <div className={`ml-auto text-[9px] font-bold tracking-widest uppercase px-3 py-1 border rounded ${
-                    sheet.status === 'approved' ? 'border-green-400 dark:border-green-500/30 text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-500/10' :
-                    sheet.status === 'submitted' ? 'border-blue-600 dark:border-blue-500/30 text-white dark:text-blue-400 bg-blue-600 dark:bg-blue-500/10' :
-                    sheet.status === 'rework' ? 'border-red-400 dark:border-red-500/40 text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10' :
-                    'border-gray-300 dark:border-white/15 text-gray-500 dark:text-text-muted bg-gray-50 dark:bg-bg-elevated'}`}>
+                    sheet.status === 'approved' ? 'border-green-200 dark:border-green-500/20 text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-500/10' :
+                    sheet.status === 'submitted' ? 'border-blue-200 dark:border-blue-500/20 text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/10' :
+                    sheet.status === 'rework' ? 'border-red-200 dark:border-red-500/20 text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10' :
+                    'border-gray-200 dark:border-white/10 text-gray-500 dark:text-text-muted bg-gray-50 dark:bg-bg-elevated'}`}>
                     {sheet.status.toUpperCase()}
                   </div>
                 </div>

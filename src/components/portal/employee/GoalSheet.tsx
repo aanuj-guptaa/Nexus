@@ -14,7 +14,7 @@ const MEASUREMENTS: { value: MeasurementType; label: string }[] = [
 const STATUS_STYLES: Record<string, string> = {
   not_started: 'bg-gray-100 dark:bg-white/5 text-gray-500 dark:text-text-muted border-gray-200 dark:border-white/10',
   on_track: 'bg-green-50 dark:bg-green-500/10 text-green-600 dark:text-green-400 border-green-200 dark:border-green-500/20',
-  completed: 'bg-blue-600 dark:bg-blue-50 dark:bg-blue-600 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-500/20',
+  completed: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-500/20',
   at_risk: 'bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 border-red-200 dark:border-red-500/20',
 }
 const STATUS_LABELS: Record<string, string> = {
@@ -153,8 +153,6 @@ export function GoalSheet() {
     setSubmitting(false)
   }
 
-  const windowOpen = true // Q1 window is open
-
   return (
     <div className="min-h-screen bg-[#F2F0EB] dark:bg-bg-base relative">
       <div className="max-w-4xl mx-auto px-8 py-10">
@@ -178,7 +176,12 @@ export function GoalSheet() {
             </p>
           </div>
           <div className="flex flex-col items-end gap-2">
-            <span className={`text-[9px] font-bold tracking-widest uppercase px-3 py-1 rounded border ${windowOpen ? 'bg-green-50 dark:bg-green-500/10 text-green-600 dark:text-green-400 border-green-200 dark:border-green-500/20' : 'bg-gray-100 dark:bg-white/5 text-gray-500 dark:text-text-muted border-gray-200 dark:border-white/10'}`}>
+            <span className={`text-[9px] font-bold tracking-widest uppercase px-3 py-1 rounded border ${
+              sheet.status === 'approved' ? 'bg-green-50 dark:bg-green-500/10 text-green-600 dark:text-green-400 border-green-200 dark:border-green-500/20' :
+              sheet.status === 'submitted' ? 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-500/20' :
+              sheet.status === 'rework' ? 'bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 border-red-200 dark:border-red-500/20' :
+              'bg-gray-100 dark:bg-white/5 text-gray-500 dark:text-text-muted border-gray-200 dark:border-white/10'
+            }`}>
               {sheet.status.toUpperCase()}
             </span>
             {sheet.status !== 'approved' && (

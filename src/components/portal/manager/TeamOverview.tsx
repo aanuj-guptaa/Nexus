@@ -4,10 +4,10 @@ import { usePortalStore, computeSheetScore } from '../../../store/portalStore'
 import type { SheetStatus } from '../../../types/portal'
 
 const STATUS_STYLE: Record<SheetStatus, string> = {
-  draft: 'border-gray-300 dark:border-white/15 text-gray-500 dark:text-text-muted bg-gray-50 dark:bg-bg-elevated',
-  submitted: 'border-blue-600 dark:border-blue-500/30 text-white dark:text-blue-400 bg-blue-600 dark:bg-blue-500/10',
-  approved: 'border-green-400 dark:border-green-500/30 text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-500/10',
-  rework: 'border-red-400 dark:border-red-500/40 text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10',
+  draft: 'border-gray-200 dark:border-white/10 text-gray-500 dark:text-text-muted bg-gray-50 dark:bg-bg-elevated',
+  submitted: 'border-blue-200 dark:border-blue-500/20 text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/10',
+  approved: 'border-green-200 dark:border-green-500/20 text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-500/10',
+  rework: 'border-red-200 dark:border-red-500/20 text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10',
 }
 
 export function ManagerTeamOverview({ onNav }: { onNav: (id: string, extra?: string) => void }) {
