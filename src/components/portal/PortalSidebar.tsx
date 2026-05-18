@@ -21,6 +21,9 @@ const ADMIN_NAV: NavItem[] = [
   { id: 'escalations', icon: '⚠', label: 'Escalations' },
   { id: 'reports', icon: '◰', label: 'Reports' },
   { id: 'analytics', icon: '▲', label: 'Analytics' },
+  { id: 'heatmap-matrix', icon: '⊞', label: 'Matrix Heatmap' },
+  { id: 'heatmap-calendar', icon: '◪', label: 'Activity Calendar' },
+  { id: 'heatmap-radial', icon: '◍', label: 'Radial Scores' },
 ]
 
 interface SidebarProps { active: string; onNav: (id: string) => void }

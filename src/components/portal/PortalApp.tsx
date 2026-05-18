@@ -13,6 +13,7 @@ import { ReviewSheets } from './manager/ReviewSheets'
 import { ManagerCheckins } from './manager/ManagerCheckins'
 import { CompletionDash } from './admin/CompletionDash'
 import { CyclesAdmin, AuditTrailAdmin, HierarchyAdmin, ReportsAdmin, EscalationsAdmin, AnalyticsAdmin } from './admin/AdminViews'
+import { ThrustAreaMatrixHeatmap, ActivityCalendarHeatmap, RadialScoreHeatmap } from './admin/HeatmapViews'
 
 function SharedGoalsManager() {
   const { employees, manager, sharedGoalTemplates, pushSharedGoal } = usePortalStore()
@@ -155,6 +156,9 @@ export function PortalApp() {
     if (activePage === 'reports') return <ReportsAdmin />
     if (activePage === 'escalations') return <EscalationsAdmin />
     if (activePage === 'analytics') return <AnalyticsAdmin />
+    if (activePage === 'heatmap-matrix') return <ThrustAreaMatrixHeatmap />
+    if (activePage === 'heatmap-calendar') return <ActivityCalendarHeatmap />
+    if (activePage === 'heatmap-radial') return <RadialScoreHeatmap />
     return <CompletionDash />
   }
 
